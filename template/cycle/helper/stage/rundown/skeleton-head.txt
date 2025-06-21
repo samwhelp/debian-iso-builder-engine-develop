@@ -114,8 +114,8 @@ core-bootloader-package-install
 
 
 ##
-## ## casper (live-boot)
+## ## debianlive (live-boot)
 ##
 
-live-casper-package-install
-live-casper-config-install
+live-debianlive-package-install
+live-debianlive-config-install

@@ -44,35 +44,54 @@ REF_INIT_DIR_PATH="${REF_BASE_DIR_PATH}/../../../ext"
 
 
 ################################################################################
-### Head: Model / mod_module_casper_package_install
+### Head: Model / mod_module_debianlive_config_install
 ##
 
-mod_module_casper_package_install () {
+mod_module_debianlive_config_install () {
 
+	return 0
 
-local run_cmd=$(cat << __EOF__
-	apt-get install -y --no-install-recommends
-		casper
-		discover
-		laptop-detect
-		os-prober
-		keyutils
+cat << __EOF__ > /etc/debianlive.conf
+
+##
+## This file should go in /etc/debianlive.conf
+## Supported variables are:
+##
+## * USERNAME
+## * USERFULLNAME
+## * HOST
+## * BUILD_SYSTEM
+## * FLAVOUR
+##
+
+export USERNAME="live"
+export USERFULLNAME="${REF_BUILD_SUBJECT_TITLE} Live session user"
+export HOST="${REF_BUILD_SUBJECT_NAME}"
+export BUILD_SYSTEM="Ubuntu"
+
+# USERNAME and HOSTNAME as specified above won't be honoured and will be set to
+# flavour string acquired at boot time, unless you set FLAVOUR to any
+# non-empty string.
+
+export FLAVOUR="${REF_BUILD_SUBJECT_TITLE}"
 __EOF__
-)
 
 
 	util_error_echo
-	util_error_echo $run_cmd
+	util_error_echo "##"
+	util_error_echo "## ## Create /etc/debianlive.conf"
+	util_error_echo "##"
 	util_error_echo
+	cat /etc/debianlive.conf
 
-	$run_cmd
+
 
 
 	return 0
 }
 
 ##
-### Tail: Model / mod_module_casper_package_install
+### Tail: Model / mod_module_debianlive_config_install
 ################################################################################
 
 
@@ -93,7 +112,7 @@ portal_install () {
 	util_error_echo "[Run Module]: ${script_file_path}"
 
 
-	mod_module_casper_package_install
+	mod_module_debianlive_config_install
 
 
 }
