@@ -470,13 +470,13 @@ set timeout=10
 menuentry "${menu_entry_subject_name}" {
 	set gfxpayload=keep
 	linux   /live/vmlinuz boot=live nopersistent quiet splash ---
-	initrd  /live/initrd
+	initrd  /live/initrd.img
 }
 
 menuentry "${menu_entry_subject_name} (Safe Graphics)" {
 	set gfxpayload=keep
 	linux   /live/vmlinuz boot=live nopersistent nomodeset ---
-	initrd  /live/initrd
+	initrd  /live/initrd.img
 }
 
 if [ "\$grub_platform" == "efi" ]; then
@@ -639,13 +639,13 @@ sys_distro_iso_create_kernel_via_copy () {
 	mkdir -p "${target_dir_path}"
 
 	rm -f "${target_dir_path}"/vmlinuz
-	rm -f "${target_dir_path}"/initrd
+	rm -f "${target_dir_path}"/initrd.img
 
 	#cp -f "${source_dir_path}"/vmlinuz-**-**-generic "${target_dir_path}"/vmlinuz
 	#cp -f "${source_dir_path}"/initrd.img-**-**-generic "${target_dir_path}"/initrd
 
 	cp -f "${source_dir_path}"/vmlinuz-* "${target_dir_path}"/vmlinuz
-	cp -f "${source_dir_path}"/initrd.img-* "${target_dir_path}"/initrd
+	cp -f "${source_dir_path}"/initrd.img-* "${target_dir_path}"/initrd.img
 
 
 
