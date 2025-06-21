@@ -79,6 +79,12 @@ __EOF__
 sys_network_config_install_netplan_via_cmd () {
 
 
+	util_error_echo
+	util_error_echo mkdir -p /etc/netplan/
+	util_error_echo
+	mkdir -p /etc/netplan/
+
+
 
 
 cat << __EOF__ > /etc/netplan/01-network-manager-all.yaml
@@ -106,7 +112,7 @@ sys_network_config_install_via_cmd () {
 
 	sys_network_config_install_network_manager_via_cmd
 
-	sys_network_config_install_netplan_via_cmd
+	#sys_network_config_install_netplan_via_cmd
 
 
 	return 0
