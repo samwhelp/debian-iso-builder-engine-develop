@@ -80,9 +80,9 @@ sys_network_config_install_netplan_via_cmd () {
 
 
 	util_error_echo
-	util_error_echo mkdir -p /etc/netplan/
+	util_error_echo mkdir -p /etc/netplan
 	util_error_echo
-	mkdir -p /etc/netplan/
+	mkdir -p /etc/netplan
 
 
 
