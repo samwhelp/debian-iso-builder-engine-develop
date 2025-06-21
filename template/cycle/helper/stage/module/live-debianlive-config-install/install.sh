@@ -47,42 +47,26 @@ REF_INIT_DIR_PATH="${REF_BASE_DIR_PATH}/../../../ext"
 ### Head: Model / mod_module_debianlive_config_install
 ##
 
-mod_module_debianlive_config_install () {
+sys_debianlive_config_via_file () {
+
+
+	local source_dir_path="${REF_BASE_DIR_PATH}/asset/overlay"
+	local target_dir_path="/"
+
+	util_error_echo
+	util_error_echo cp -rfT "${source_dir_path}" "${target_dir_path}"
+	util_error_echo
+	cp -rfT "${source_dir_path}" "${target_dir_path}"
+
 
 	return 0
-
-cat << __EOF__ > /etc/debianlive.conf
-
-##
-## This file should go in /etc/debianlive.conf
-## Supported variables are:
-##
-## * USERNAME
-## * USERFULLNAME
-## * HOST
-## * BUILD_SYSTEM
-## * FLAVOUR
-##
-
-export USERNAME="live"
-export USERFULLNAME="${REF_BUILD_SUBJECT_TITLE} Live session user"
-export HOST="${REF_BUILD_SUBJECT_NAME}"
-export BUILD_SYSTEM="Ubuntu"
-
-# USERNAME and HOSTNAME as specified above won't be honoured and will be set to
-# flavour string acquired at boot time, unless you set FLAVOUR to any
-# non-empty string.
-
-export FLAVOUR="${REF_BUILD_SUBJECT_TITLE}"
-__EOF__
+}
 
 
-	util_error_echo
-	util_error_echo "##"
-	util_error_echo "## ## Create /etc/debianlive.conf"
-	util_error_echo "##"
-	util_error_echo
-	cat /etc/debianlive.conf
+mod_module_debianlive_config_install () {
+
+
+	sys_debianlive_config_via_file
 
 
 
