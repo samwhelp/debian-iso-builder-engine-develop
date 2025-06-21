@@ -469,14 +469,14 @@ set timeout=10
 
 menuentry "${menu_entry_subject_name}" {
 	set gfxpayload=keep
-	linux   /casper/vmlinuz boot=casper nopersistent quiet splash ---
-	initrd  /casper/initrd
+	linux   /live/vmlinuz boot=live nopersistent quiet splash ---
+	initrd  /live/initrd
 }
 
 menuentry "${menu_entry_subject_name} (Safe Graphics)" {
 	set gfxpayload=keep
-	linux   /casper/vmlinuz boot=casper nopersistent nomodeset ---
-	initrd  /casper/initrd
+	linux   /live/vmlinuz boot=live nopersistent nomodeset ---
+	initrd  /live/initrd
 }
 
 if [ "\$grub_platform" == "efi" ]; then
@@ -662,7 +662,7 @@ sys_distro_iso_create_manifest () {
 	local distro_iso_dir_path="${2}"
 
 	local source_dir_path="${distro_img_dir_path}"
-	local target_dir_path="${distro_iso_dir_path}/casper"
+	local target_dir_path="${distro_iso_dir_path}/live"
 
 	mkdir -p "${source_dir_path}"
 	mkdir -p "${target_dir_path}"
@@ -687,7 +687,7 @@ sys_distro_iso_create_filesystem_size () {
 	local distro_iso_dir_path="${2}"
 
 	local source_dir_path="${distro_img_dir_path}"
-	local target_dir_path="${distro_iso_dir_path}/casper"
+	local target_dir_path="${distro_iso_dir_path}/live"
 
 	mkdir -p "${source_dir_path}"
 	mkdir -p "${target_dir_path}"

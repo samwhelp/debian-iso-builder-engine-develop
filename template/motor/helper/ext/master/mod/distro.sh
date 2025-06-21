@@ -168,7 +168,7 @@ mod_distro_base_system_create () {
 
 mod_distro_img_archive () {
 
-	local squashfs_root_dir_path="${REF_DISTRO_ISO_DIR_PATH}/casper"
+	local squashfs_root_dir_path="${REF_DISTRO_ISO_DIR_PATH}/live"
 
 	mkdir -p "${squashfs_root_dir_path}"
 
@@ -347,7 +347,7 @@ mod_distro_iso_create_base_dir () {
 
 	sudo rm -rf "${distro_iso_dir_path}"
 
-	sudo mkdir -p "${distro_iso_dir_path}"/{casper,isolinux,.disk}
+	sudo mkdir -p "${distro_iso_dir_path}"/{live,isolinux,.disk}
 
 }
 
@@ -423,7 +423,7 @@ mod_distro_iso_create_boot_image_for_uefi () {
 mod_distro_iso_create_kernel () {
 
 	local source_dir_path="${REF_DISTRO_IMG_DIR_PATH}/boot"
-	local target_dir_path="${REF_DISTRO_ISO_DIR_PATH}/casper"
+	local target_dir_path="${REF_DISTRO_ISO_DIR_PATH}/live"
 
 	sys_distro_iso_create_kernel_via_copy "${source_dir_path}" "${target_dir_path}"
 
