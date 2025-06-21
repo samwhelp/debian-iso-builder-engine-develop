@@ -67,7 +67,6 @@ local run_cmd=$(cat << __EOF__
 	apt-get install -y
 		os-prober
 		grub-common
-		grub-gfxpayload-lists
 		grub-pc
 		grub-pc-bin
 		grub2-common
