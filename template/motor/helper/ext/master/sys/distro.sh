@@ -641,8 +641,13 @@ sys_distro_iso_create_kernel_via_copy () {
 	rm -f "${target_dir_path}"/vmlinuz
 	rm -f "${target_dir_path}"/initrd
 
-	cp -f "${source_dir_path}"/vmlinuz-**-**-generic "${target_dir_path}"/vmlinuz
-	cp -f "${source_dir_path}"/initrd.img-**-**-generic "${target_dir_path}"/initrd
+	#cp -f "${source_dir_path}"/vmlinuz-**-**-generic "${target_dir_path}"/vmlinuz
+	#cp -f "${source_dir_path}"/initrd.img-**-**-generic "${target_dir_path}"/initrd
+
+	cp -f "${source_dir_path}"/vmlinuz-* "${target_dir_path}"/vmlinuz
+	cp -f "${source_dir_path}"/initrd.img-* "${target_dir_path}"/initrd
+
+
 
 	return 0
 }
