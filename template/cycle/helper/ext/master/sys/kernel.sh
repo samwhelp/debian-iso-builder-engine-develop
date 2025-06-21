@@ -6,10 +6,19 @@
 
 sys_kernel_package_name_find () {
 
-	sys_kernel_package_name_find_via_apt_cache
+	sys_kernel_package_name_find_for_amd64
+
+	#sys_kernel_package_name_find_via_apt_cache
 
 	#sys_kernel_package_name_find_via_apt
 
+}
+
+sys_kernel_package_name_find_for_amd64 () {
+
+	echo "linux-image-amd64"
+
+	return 0
 }
 
 sys_kernel_package_name_find_via_apt_cache () {
