@@ -31,7 +31,7 @@ build-locale-package-install
 ##
 
 core-apt-limit-base-files-holding
-core-apt-limit-no-snapd
+#core-apt-limit-no-snapd
 
 
 
